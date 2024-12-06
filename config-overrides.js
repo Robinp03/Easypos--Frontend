@@ -1,10 +1,10 @@
-import {webpack} from 'webpack';
+const webpack = require('webpack');
 
-export function override(config, env) {
+module.exports = function override(config, env) {
   config.resolve.fallback = {
-    "crypto": webpack.resolve("crypto-browserify"),
-    "stream": webpack.resolve("stream-browserify"),
-    "util": webpack.resolve("util/"),
+    "crypto": require.resolve("crypto-browserify"),
+    "stream": require.resolve("stream-browserify"),
+    "util": require.resolve("util/"),
   };
   return config;
 };
