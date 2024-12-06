@@ -1,6 +1,6 @@
 import { DefinePlugin } from 'webpack';
 
-module.exports = {
+export default {
   webpack: {
     plugins: [
       new DefinePlugin({
