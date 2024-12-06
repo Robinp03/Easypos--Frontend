@@ -12,7 +12,7 @@ module.exports = {
       plugins: [
         new webpack.ProvidePlugin({
           process: "process/browser",
-          "process.env": JSON.stringify(process.env),
+          "process.env": JSON.stringify(process.env.NODE_ENV),
         }),
       ],
     },
