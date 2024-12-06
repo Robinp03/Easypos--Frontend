@@ -1,12 +1,12 @@
+import { DefinePlugin } from 'webpack';
+
 module.exports = {
-  plugins: [
-    {
-      plugin: require('craco-alias'),
-      options: {
-        source: 'tsconfig',
-        baseUrl: './src',
-        tsConfigPath: './tsconfig.paths.json'
-      }
-    }
-  ]
+  webpack: {
+    plugins: [
+      new DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('production'),
+      }),
+    ],
+  },
 };
+
