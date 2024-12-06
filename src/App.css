@@ -1,0 +1,539 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 15px;
+}
+
+
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #000000;
+  color: white;
+  padding: 15px;
+  width: 200px;
+  height: 100vh; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+nav.active {
+  transform: translateX(0);
+}
+
+.menu-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  cursor: pointer;
+  z-index: 100; 
+}
+
+.menu-toggle.active{
+  color: #ffffff;
+  background-color: #000000;
+}
+
+
+nav img {
+  max-width: 100px;
+  margin-top: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  padding: 10px 0;
+}
+
+nav ul li:hover {
+  background-color: #333333;
+}
+
+.main-content {
+  margin-left: 80px;
+  padding: 15px;
+  background-color: #f1f1f1;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+nav.active ~ .main-content {
+  margin-left: 110px; 
+}
+
+
+
+footer {
+  justify-content: center;
+  background-color: #000000;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  flex-shrink: 0; 
+  margin-top: auto; 
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  padding: 0 15px;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #5e10a7;
+}
+
+
+h2 {
+  font-size: 1.5rem; 
+  font-weight: bold;
+  margin-bottom: 16px; 
+}
+
+h3 {
+  font-size: 1.25rem; 
+  font-weight: 600; 
+  margin-bottom: 8px; 
+}
+
+
+
+
+label {
+  font-size: 1rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #d1d5db; 
+  border-radius: 4px;
+  margin-bottom: 16px; 
+}
+
+.input-container{
+  width: 50%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #d1d5db; 
+  border-radius: 4px;
+  margin-bottom: 16px; 
+}
+
+.GenerarFactura{
+  width: 350px;
+
+}
+
+input:disabled {
+  background-color: #f3f4f6; 
+}
+
+.inputFecha{
+  width: 300px;
+}
+
+button {
+  background-color: #000000; 
+  color: white;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+button:hover {
+  background-color: #5e10a7;
+}
+
+button:disabled {
+  background-color: rgb(0, 0, 0); 
+  cursor: not-allowed;
+}
+
+button.variant-outline {
+  background-color: transparent;
+  color: #000000; 
+  border: 2px solid #000000; 
+}
+
+button.ml-2 {
+  margin-left: 8px;
+}
+
+.orders-container button{
+  width: 150px;
+}
+
+.text-sm {
+  font-size: 0.875rem; 
+  color: #6b7280; 
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.mr-2{
+  font-size: 10px;
+  
+} 
+
+.destructive{
+  font-size: 10px;
+}
+
+.BotonProducto{
+  width: 200px;
+  margin-left: 10px;
+}
+
+.BotonCancelar{
+  width: 200px;
+  margin-left: 130px;
+  margin-top: -63px;
+}
+
+.FiltrarCategoria, .EscogerCategoria, .NombreProducto{
+  width: 400px;
+}
+
+.InputCantidad, .InputValor{
+  width: 200px;
+}
+
+.table-container{
+  width: 50%;
+}
+
+table {
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+thead {
+  background-color: #000000;
+  color: #fff;
+  text-align: left;
+}
+
+thead th {
+  padding: 15px;
+  font-size: 1rem;
+  text-align: left; /* Asegura alineación consistente */
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+td {
+  padding: 12px 15px;
+  color: #333;
+  font-size: 0.95rem;
+  text-align: left; /* Ajusta la alineación del contenido */
+  word-wrap: break-word; /* Evita desbordamiento de texto */
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 0.85rem; /* Reduce el tamaño de fuente en pantallas pequeñas */
+  }
+
+  thead th {
+    padding: 10px;
+  }
+
+  td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  tbody tr {
+    display: block; /* Permite que las filas se adapten verticalmente */
+    margin-bottom: 10px; /* Espacio entre filas */
+  }
+
+  td {
+    display: block;
+    text-align: right; /* Alinea contenido para visualización móvil */
+  }
+
+  td::before {
+    content: attr(data-label); /* Agrega etiquetas para cada celda */
+    font-weight: bold;
+    text-transform: uppercase;
+    float: left;
+    color: #555;
+  }
+}
+
+
+table button{
+  white-space: nowrap;
+  margin: 5px;
+}
+
+.p-2{
+  gap: 30px;
+  padding: 15px;
+}
+
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+.login-container img {
+  max-width: 200px;
+  max-height: 200px;
+  margin-bottom: 20px;
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  object-fit: cover; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.login-container img:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+}
+
+.register-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  
+}
+
+
+
+.register-container img {
+  max-width: 200px;
+  max-height: 200px;
+  margin-bottom: 20px;
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  object-fit: cover; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.register-container img:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+}
+
+
+.register-container button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.register-container button:hover {
+  background-color: #5e10a7;
+}
+
+
+select {
+  width: 50%; 
+  padding: 8px;
+  padding-right: 10px;
+  font-size: 1rem;
+  border: 1px solid #d1d5db; 
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  margin-bottom: 16px;
+  transition: border-color 0.2s ease;
+  appearance: none; 
+}
+
+
+select::after {
+  content: '▼';
+  font-size: 0.8em;
+  color: #333;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+
+select:hover {
+  border-color: #5e10a7; 
+}
+
+select:focus {
+  outline: none;
+  border-color: #5e10a7; 
+  box-shadow: 0 0 4px rgba(94, 16, 167, 0.3); 
+}
+
+.logout-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #c9302c;
+}
+
+
+.products-container h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+form input[type="text"],
+form select {
+  font-size: 1rem;
+  padding: 10px 15px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form select:focus {
+  outline: none;
+  border-color: #5e10a7;
+}
+
+form button {
+  max-width: 60%;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column; 
+  gap: 2rem; 
+  margin: 20px auto; 
+  width: 80%; 
+  max-width: 1200px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.classPie, .classBar {
+  width: 100%; 
+  max-width: 500px; 
+  margin: 0 auto; 
+}
+
+
+.dashboard button{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.invoices-container{
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: auto;
+}
